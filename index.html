@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Distancia MRUV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+        .formula {
+            text-align: center;
+            font-style: italic;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body onload="calculador_de_distancia_mruv();">
+    <div class="container">
+        <h1>Calculadora de Distancia MRUV</h1>
+        <div class="formula">
+            <p>Fórmula de Distancia en MRUV: </p>
+            <p>d = Di + Vi * (t - Ti) + 1/2 * A * t^2</p>
+            <p>(los valores de la formula deben estar cargados en la misma uniad de medida) </p>
+        </div>
+        <form>
+            <label for="x1">Distancia Inicial:</label>
+            <input type="text" id="x1">
+
+            <label for="vi">Velocidad Inicial:</label>
+            <input type="text" id="vi">
+
+            <label for="t">Tiempo Final:</label>
+            <input type="text" id="t">
+
+            <label for="ti">Tiempo Inicial:</label>
+            <input type="text" id="ti">
+
+            <label for="a">Aceleración:</label>
+            <input type="text" id="a">
+
+            <label for="tt">Tiempo Total:</label>
+            <input type="text" id="tt">
+
+            <button type="button" onclick="calcularDistancia()">Calcular</button>
+            <button type="reset">Reset</button>
+        </form>
+        <div id="resultado"></div>
+    </div>
+
+    <script type="text/javascript">
+        function calcularDistancia() {
+            var x1 = parseFloat(document.getElementById('x1').value);
+            var vi = parseFloat(document.getElementById('vi').value);
+            var t = parseFloat(document.getElementById('t').value);
+            var ti = parseFloat(document.getElementById('ti').value);
+            var a = parseFloat(document.getElementById('a').value);
+            var tt = parseFloat(document.getElementById('tt').value);
+            var ecuacion = x1 + vi * (t - ti) + 1/2 * a * Math.pow(tt, 2);
+            document.getElementById('resultado').innerHTML = "La distancia es: " + ecuacion;
+        }
+    </script>
+
+    <div class="footer">
+        Hecho por Mateo Albang
+    </div>
+</body>
+</html>
