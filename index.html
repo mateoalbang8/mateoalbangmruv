@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Distancia MRUV</title>
     <style>
         body {
@@ -10,7 +12,7 @@
             padding: 0;
         }
         .container {
-            max-width: 600px;
+            max-width: 90%; /* Adjust as needed */
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
@@ -56,15 +58,22 @@
             margin-top: 20px;
             color: #666;
         }
+
+        /* Media Queries */
+        @media only screen and (min-width: 600px) {
+            .container {
+                max-width: 600px;
+            }
+        }
     </style>
 </head>
 <body onload="calculador_de_distancia_mruv();">
     <div class="container">
         <h1>Calculadora de Distancia MRUV</h1>
         <div class="formula">
-            <p>Fórmula de Distancia en MRUV: </p>
+            <p>Fórmula de Distancia en MRUV:</p>
             <p>d = Di + Vi * (t - Ti) + 1/2 * A * t^2</p>
-            <p>(los valores de la formula deben estar cargados en la misma uniad de medida) </p>
+            <p>(los valores de la formula deben estar cargados en la misma unidad de medida)</p>
         </div>
         <form>
             <label for="x1">Distancia Inicial:</label>
@@ -91,6 +100,10 @@
         <div id="resultado"></div>
     </div>
 
+    <div class="footer">
+        Hecho por Mateo Albang
+    </div>
+
     <script type="text/javascript">
         function calcularDistancia() {
             var x1 = parseFloat(document.getElementById('x1').value);
@@ -103,9 +116,6 @@
             document.getElementById('resultado').innerHTML = "La distancia es: " + ecuacion;
         }
     </script>
-
-    <div class="footer">
-        Hecho por Mateo Albang
-    </div>
 </body>
 </html>
+
